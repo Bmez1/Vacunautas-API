@@ -57,11 +57,12 @@ public class VacunaService {
 
 	// Eliminar vacuna
 	@Transactional
-	public void delete(Long id) {
+	public Vacuna delete(Long id) {
 		Vacuna existeVacuna = vacunaRepository.findById(id)
 				.orElseThrow(() -> new RuntimeException("La vacuna no existe..."));
 
 		vacunaRepository.delete(existeVacuna);
+		return existeVacuna;
 	}
 
 }
